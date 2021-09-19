@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import BlogContent from '../containers/BlogContent/BlogContent';
 import { BlogPlaceholder } from '../components/Wrapper/BlogPlaceholder';
 import { scrollToTop } from '../util/scrollToTop';
+import BlogHeader from '../components/BlogHeader/BlogHeader';
 
 const client = createClient({
   accessToken: process.env.REACT_APP_CONTENTFUL_API_KEY,
@@ -33,6 +34,7 @@ const BlockSingle = () => {
 
   return (
     <>
+      <BlogHeader blog={blog} />
       <BlogContent blog={blog} />
     </>
   );
