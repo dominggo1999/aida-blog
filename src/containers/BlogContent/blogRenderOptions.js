@@ -49,7 +49,7 @@ export const blogRenderOptions = {
     },
 
     // Link
-    [BLOCKS.EMBEDDED_ENTRY]: (node, children) => {
+    [INLINES.HYPERLINK]: (node, children) => {
       return (
         <Hyperlink
           target="_blank"
