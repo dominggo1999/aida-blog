@@ -1,13 +1,14 @@
 import React from 'react';
 import { BiTimeFive } from 'react-icons/bi';
 import {
-  BlogHeaderWrapper, HeaderTop, HeaderTitle, HeaderDate, HeaderReadingTime, Flex, ReadingSection, HeaderImage,
+  BlogHeaderWrapper, HeaderTop, HeaderTitle, HeaderDate, HeaderReadingTime, Flex, HeaderImage,
 } from './BlogHeader.style';
 import Container from '../Wrapper/Container';
 import Button from '../Button/Button';
 import { categoryColors } from '../../data/categoryColors';
 import { parseDate } from '../../util/parseDate';
 import { AidaImage } from '../Wrapper/AidaImage';
+import { ReadingSection } from '../Wrapper/ReadingSection';
 
 const BlogHeader = ({ blog }) => {
   const {

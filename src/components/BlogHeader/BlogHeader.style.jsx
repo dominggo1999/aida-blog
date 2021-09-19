@@ -17,15 +17,6 @@ export const Flex = styled.div`
   `}
 `;
 
-export const ReadingSection = styled.article`
-  ${tw`
-    w-full
-    mx-auto
-  `}
-
-  max-width: 728px;
-`;
-
 export const HeaderTop = styled.div`
   ${tw`
     flex
