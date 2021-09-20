@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import Blog from './pages/Blog';
 import BlogSingle from './pages/BlogSingle';
+import Page404 from './pages/Page404';
 
 /*
   url/blog => blog utama page 1 (recent post)
@@ -34,9 +35,15 @@ const Routes = () => {
           <Blog />
         </Route>
         <Route
+          exact
           path="/blog/:slug"
         >
           <BlogSingle />
+        </Route>
+
+        {/* 404 PAGE */}
+        <Route path="*">
+          <Page404 />
         </Route>
       </Switch>
     </>

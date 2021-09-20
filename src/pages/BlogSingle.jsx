@@ -16,10 +16,13 @@ const BlockSingle = () => {
   const [blog, setBlog] = useState();
 
   const getBlog = async () => {
+    // THIS SHOULD BE ON TRYCATCH BLOCK
     const res = await client.getEntries({
       content_type: 'blog',
       'fields.slug': blogSlug,
     });
+
+    // REDIRECT TO 404 PAGE IF BLOCK DOESN'T
 
     const blog = res.items[0];
     setBlog(blog);
