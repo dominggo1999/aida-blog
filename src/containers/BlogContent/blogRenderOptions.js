@@ -6,6 +6,9 @@ import {
   Heading5,
   Heading6,
   Hyperlink,
+  BlockQuote,
+  UnonderedList,
+  OrderedList,
 } from './BlogRender.style';
 import BlogCodeBlock from './BlogCodeBlock';
 
@@ -46,6 +49,25 @@ export const blogRenderOptions = {
     },
     [BLOCKS.HEADING_6]: (node, children) => {
       return <Heading6>{children}</Heading6>;
+    },
+
+    // Unordered list
+    [BLOCKS.UL_LIST]: (node, children) => {
+      return <UnonderedList>{children}</UnonderedList>;
+    },
+
+    // Ordered list
+    [BLOCKS.OL_LIST]: (node, children) => {
+      return <OrderedList>{children}</OrderedList>;
+    },
+
+    // Quote
+    [BLOCKS.QUOTE]: (node, children) => {
+      return (
+        <BlockQuote>
+          {children}
+        </BlockQuote>
+      );
     },
 
     // Link

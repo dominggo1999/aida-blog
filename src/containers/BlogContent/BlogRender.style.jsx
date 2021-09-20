@@ -3,8 +3,7 @@ import tw, { styled } from 'twin.macro';
 export const Content = styled.div`
   ${tw`
     font-sans-pro 
-    text-base
-    md:text-lg
+    text-lg
     break-words
   `}
 
@@ -45,6 +44,60 @@ export const Paragraph = styled.p`
   ${tw`
     mb-8 
   `}
+`;
+
+export const BlockQuote = styled.blockquote`
+  ${tw`
+    bg-brand-3
+    p-5
+    mb-8
+    border-l-8 
+    border-brand-1
+    font-poppins
+    text-base
+  `}
+
+  p{
+    ${tw`
+      mb-3
+    `}
+  }
+
+  p:not(:nth-child(1)) {
+    ${tw`
+      m-0
+    `}
+  }
+
+  p b {
+    ${tw`font-semibold`}
+  }
+`;
+
+export const UnonderedList = styled.ul`
+  ${tw`
+    list-disc
+    ml-5
+  `}
+
+  p {
+    ${tw`
+      mb-2
+    `}
+  }
+`;
+
+export const OrderedList = styled.ol`
+  ${tw`
+    list-decimal
+    ml-4
+  `}
+
+  p {
+    ${tw`
+      mb-2
+    `}
+  }
 `;
 
 export const Hyperlink = styled.a`
