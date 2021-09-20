@@ -5,7 +5,7 @@ export const BlogListHeaderWrapper = styled.div`
     flex
     w-full
     justify-center
-    mt-24
+    mt-20
     bg-brand-4 
     py-12
     md:py-20
