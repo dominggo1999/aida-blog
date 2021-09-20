@@ -1,5 +1,6 @@
 import { createClient } from 'contentful';
 import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import BlogContent from '../containers/BlogContent/BlogContent';
 import { BlogPlaceholder } from '../components/Wrapper/BlogPlaceholder';
 import { scrollToTop } from '../util/scrollToTop';
@@ -13,20 +14,30 @@ const client = createClient({
 const blogSlug = 'makan-bang';
 
 const BlockSingle = () => {
+  const history = useHistory();
   const [blog, setBlog] = useState();
 
   const getBlog = async () => {
+    try {
     // THIS SHOULD BE ON TRYCATCH BLOCK
-    const res = await client.getEntries({
-      content_type: 'blog',
-      'fields.slug': blogSlug,
-    });
+      const res = await client.getEntries({
+        content_type: 'blog',
+        'fields.slug': blogSlug,
+      });
 
-    // REDIRECT TO 404 PAGE IF BLOCK DOESN'T
+      // REDIRECT TO 404 PAGE IF BLOCK DOESN'T
 
-    const blog = res.items[0];
-    setBlog(blog);
-    scrollToTop();
+      const blog = res.items[0];
+      if(blog) {
+        setBlog(blog);
+      }else{
+        history.push('/404');
+      }
+
+      scrollToTop();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
