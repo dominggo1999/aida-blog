@@ -7,7 +7,7 @@ export const NotFoundWrapper = styled.div`
     flex 
     justify-center 
     h-screen
-    bg-brand-3
+    bg-brand-3 
   `}
 
   min-height: 500px;

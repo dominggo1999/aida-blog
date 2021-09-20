@@ -16,6 +16,7 @@ const BlogContent = ({ blog }) => {
           <Content>
             {documentToReactComponents(content, blogRenderOptions)}
           </Content>
+          <hr />
         </ReadingSection>
       </Container>
     </BlogContentWrapper>

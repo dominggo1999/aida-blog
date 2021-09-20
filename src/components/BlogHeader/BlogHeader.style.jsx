@@ -5,7 +5,6 @@ export const BlogHeaderWrapper = styled.div`
     flex
     w-full 
     justify-center
-    mt-20
     mb-10
   `}
 `;

@@ -5,6 +5,10 @@ import BlogContent from '../containers/BlogContent/BlogContent';
 import { BlogPlaceholder } from '../components/Wrapper/BlogPlaceholder';
 import { scrollToTop } from '../util/scrollToTop';
 import BlogHeader from '../components/BlogHeader/BlogHeader';
+import EditorsPicked from '../containers/EditorsPicked/EditorsPicked';
+import { SpaceTop } from '../components/Wrapper/SpaceTop';
+import { ReadingSection } from '../components/Wrapper/ReadingSection';
+import AboutWriterCard2 from '../components/AboutWriterCard2/AboutWriterCard2';
 
 const client = createClient({
   accessToken: process.env.REACT_APP_CONTENTFUL_API_KEY,
@@ -48,8 +52,11 @@ const BlockSingle = () => {
 
   return (
     <>
+      <SpaceTop />
       <BlogHeader blog={blog} />
       <BlogContent blog={blog} />
+      <AboutWriterCard2 />
+      <EditorsPicked />
     </>
   );
 };

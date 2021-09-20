@@ -7,7 +7,8 @@ const Container = styled.div`
     w-full
     px-5
     sm:px-10
-    lg:px-32
+    lg:px-32 
+    mx-auto
   `}
 
   max-width: 1400px;

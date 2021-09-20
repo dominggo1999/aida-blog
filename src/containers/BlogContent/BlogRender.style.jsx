@@ -90,7 +90,7 @@ export const UnonderedList = styled.ul`
 export const OrderedList = styled.ol`
   ${tw`
     list-decimal
-    ml-4
+    ml-5
   `}
 
   p {

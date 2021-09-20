@@ -1,17 +1,19 @@
 import { Link, useHistory } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import {
   NotFoundWrapper, NotFound, NotFoundText, NotFoundDescription, NotFoundMessage,
 } from '../styles/NotFound.style';
 import Container from '../components/Wrapper/Container';
 import Button from '../components/Button/Button';
+import { scrollToTop } from '../util/scrollToTop';
 
 const Page404 = () => {
   const history = useHistory();
+  const homeButton = useRef(null);
 
   useEffect(() => {
-    const redirectToHomepage = setInterval(() => {
-      history.push('/');
+    const redirectToHomepage = setTimeout(() => {
+      homeButton.current.click();
     }, 3000);
 
     return () => {
@@ -32,7 +34,11 @@ const Page404 = () => {
           <NotFoundDescription>
             Sorry but the page you are looking for does not exist, have been removed. name changed or is temporarily unavailable
           </NotFoundDescription>
-          <Link to="/">
+          <Link
+            onClick={scrollToTop}
+            to="/"
+            ref={homeButton}
+          >
             <Button nav>
               Homepage
             </Button>

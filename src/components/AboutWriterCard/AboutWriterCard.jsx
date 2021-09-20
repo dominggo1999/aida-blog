@@ -7,9 +7,9 @@ import { AidaImage } from '../Wrapper/AidaImage';
 
 const authorImage = 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940';
 
-const AboutWriterCard = () => {
+const AboutWriterCard = ({ horizontal }) => {
   return (
-    <CardWrapper>
+    <CardWrapper horizontal={horizontal}>
       <ImageWrapper>
         <AidaImage>
           <img

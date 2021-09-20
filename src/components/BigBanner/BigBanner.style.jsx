@@ -5,7 +5,6 @@ export const BigBannerWrapper = styled.main`
     flex
     w-full
     justify-center
-    mt-20
   `}
 `;
 
