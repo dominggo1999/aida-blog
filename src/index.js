@@ -22,11 +22,7 @@ ReactDOM.render(
             crossOrigin="true"
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
-            rel="stylesheet"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=WindSong:wght@500&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Source+Sans+Pro:wght@400;600;700;900&family=WindSong:wght@500&display=swap"
             rel="stylesheet"
           />
         </Helmet>
