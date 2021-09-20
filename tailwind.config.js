@@ -19,6 +19,7 @@ module.exports = {
       },
       boxShadow: {
         button: '14px 14px 36px rgba(85, 85, 85, 0.3)',
+        'button-2': 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
       },
       lineHeight: {
         extra: '1.2',
