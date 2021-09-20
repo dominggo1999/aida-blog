@@ -10,16 +10,9 @@ const BlogContent = ({ blog }) => {
   const { content } = blog.fields;
 
   return (
-    <BlogContentWrapper>
-      <Container>
-        <ReadingSection>
-          <Content>
-            {documentToReactComponents(content, blogRenderOptions)}
-          </Content>
-          <hr />
-        </ReadingSection>
-      </Container>
-    </BlogContentWrapper>
+    <Content>
+      {documentToReactComponents(content, blogRenderOptions)}
+    </Content>
   );
 };
 

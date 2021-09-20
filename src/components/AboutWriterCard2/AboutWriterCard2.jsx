@@ -11,49 +11,45 @@ const authorImage = 'https://images.pexels.com/photos/774909/pexels-photo-774909
 
 const AboutWriterCard2 = () => {
   return (
-    <Container>
-      <ReadingSection>
-        <CardWrapper>
-          <CardLeft>
-            <ImageWrapper>
-              <AidaImage>
-                <img
-                  src={authorImage}
-                  alt="Cool"
-                />
-              </AidaImage>
-            </ImageWrapper>
-          </CardLeft>
-          <CardRight>
-            <CardName>Aida Jasmine</CardName>
-            <CardDescription>Lorem ipsum dolor sit amet, cons ecte tur adipiscing elit, sed do mod tempor incididunt ut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, nesciunt.</CardDescription>
-            <SocialLinks>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.linkedin.com/"
-              >
-                <AiFillLinkedin />
-              </a>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.instagram.com/"
-              >
-                <AiOutlineInstagram />
-              </a>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://twitter.com/"
-              >
-                <AiOutlineTwitter />
-              </a>
-            </SocialLinks>
-          </CardRight>
-        </CardWrapper>
-      </ReadingSection>
-    </Container>
+    <CardWrapper>
+      <CardLeft>
+        <ImageWrapper>
+          <AidaImage>
+            <img
+              src={authorImage}
+              alt="Cool"
+            />
+          </AidaImage>
+        </ImageWrapper>
+      </CardLeft>
+      <CardRight>
+        <CardName>Aida Jasmine</CardName>
+        <CardDescription>Lorem ipsum dolor sit amet, cons ecte tur adipiscing elit, sed do mod tempor incididunt ut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, nesciunt.</CardDescription>
+        <SocialLinks>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.linkedin.com/"
+          >
+            <AiFillLinkedin />
+          </a>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.instagram.com/"
+          >
+            <AiOutlineInstagram />
+          </a>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://twitter.com/"
+          >
+            <AiOutlineTwitter />
+          </a>
+        </SocialLinks>
+      </CardRight>
+    </CardWrapper>
   );
 };
 

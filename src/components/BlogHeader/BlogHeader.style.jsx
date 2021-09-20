@@ -1,14 +1,5 @@
 import tw, { styled } from 'twin.macro';
 
-export const BlogHeaderWrapper = styled.div`
-  ${tw`
-    flex
-    w-full 
-    justify-center
-    mb-10
-  `}
-`;
-
 export const Flex = styled.div`
   ${tw`
     flex
@@ -71,6 +62,7 @@ export const HeaderImage = styled.div`
     w-full 
     flex 
     justify-center
-    relative
+    relative 
+    mb-10
   `}
 `;
