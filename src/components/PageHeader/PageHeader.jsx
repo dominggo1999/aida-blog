@@ -1,24 +1,27 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
-import Container from '../../components/Wrapper/Container';
+import Container from '../Wrapper/Container';
 import {
-  BlogListHeaderWrapper, HeaderTitle, NumberOfArticles, HeaderDescription, PageLink,
-} from './BlogListHeader.style';
+  HeaderWrapper, HeaderTitle, NumberOfArticles, HeaderDescription, PageLink,
+} from './PageHeader.style';
 import { capitalize } from '../../util/capitalize';
 import { scrollToTop } from '../../util/scrollToTop';
 
-const BlogTopSection = ({ title, num }) => {
-  // Fetch blog list information here
-
+const PageHeader = ({ blog, title, num }) => {
   return (
-    <BlogListHeaderWrapper>
+    <HeaderWrapper>
       <Container>
         <span>
           <HeaderTitle>
-            {title}
-            <NumberOfArticles>
-              {num} articles
-            </NumberOfArticles>
+            {capitalize(title)}
+            {
+              blog
+              && (
+              <NumberOfArticles>
+                {num} articles
+              </NumberOfArticles>
+              )
+            }
           </HeaderTitle>
         </span>
         <HeaderDescription>
@@ -32,12 +35,12 @@ const BlogTopSection = ({ title, num }) => {
           >
             Home
           </Link>
-          &nbsp;&gt;
-          All articles
+          &nbsp;&gt;&nbsp;
+          {capitalize(title)}
         </PageLink>
       </Container>
-    </BlogListHeaderWrapper>
+    </HeaderWrapper>
   );
 };
 
-export default BlogTopSection;
+export default PageHeader;

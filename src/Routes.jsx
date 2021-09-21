@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Blog from './pages/Blog';
 import BlogSingle from './pages/BlogSingle';
 import Page404 from './pages/Page404';
+import Contact from './pages/Contact';
 
 /*
   url/blog => blog utama page 1 (recent post)
@@ -21,6 +22,12 @@ const Routes = () => {
           path="/"
         >
           <Home />
+        </Route>
+        <Route
+          exact
+          path="/contact"
+        >
+          <Contact />
         </Route>
         <Route
           exact

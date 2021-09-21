@@ -1,6 +1,6 @@
 import tw, { styled } from 'twin.macro';
 
-export const BlogListHeaderWrapper = styled.div`
+export const HeaderWrapper = styled.div`
   ${tw`
     flex
     w-full
