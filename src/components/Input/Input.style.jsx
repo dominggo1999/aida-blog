@@ -2,26 +2,48 @@ import tw, { styled } from 'twin.macro';
 
 export const Field = styled.div`
   ${tw`
-    flex
+    flex 
+    flex-wrap
     w-full
   `}
 
-
-  form{
+  form {
     ${tw`
+      flex-wrap
+      items-stretch 
       flex
       w-full
     `}
+  } 
+  
+  textarea {
+    min-height: 200px;
+    max-height: 300px;
   }
 
-  input {
+  input, textarea {
     ${tw`
-      px-3
+      shadow-button
+      rounded-2xl
+      outline-none 
+      mb-5
+      mr-0
+      sm:mr-5
+      md:mb-0
+      w-full 
+      px-4
       py-5
       text-xl
       font-bold
-      text-gray-3
+      text-gray-3 
+      border-2 
+      border-transparent
     `}
+    transition: border ease-in-out 300ms;
+
+    &:focus {
+      ${tw`border-2 border-black`}
+    }
 
     &::placeholder {
       ${tw`

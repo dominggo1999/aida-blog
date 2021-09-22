@@ -27,25 +27,7 @@ export const ContentBottom = styled.div`
     flex-wrap
   `}
 
-  form {
-    ${tw`
-      flex-wrap
-      items-stretch
-    `}
-  }
-
   input {
-    ${tw`
-      shadow-button
-      rounded-2xl
-      outline-none
-      mb-5
-      mr-0
-      sm:mr-5
-      md:mb-0
-      w-full
-    `}
-
     max-width: 450px;
   }
 

@@ -1,10 +1,49 @@
 import Container from '../Wrapper/Container';
+import Input from '../Input/Input';
+import {
+  ContactWrapper, Form, ContactTitle, FormTop, FormBottom,
+} from './ContactForm.style';
+import { Wrapper } from '../Wrapper/Wrapper';
+import Button from '../Button/Button';
 
 const ContactForm = () => {
   return (
-    <Container>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam facere magni ad natus obcaecati nesciunt, vero quos itaque tempora sapiente quod, unde voluptatibus eos eveniet ducimus laudantium perferendis suscipit accusamus? Placeat libero laboriosam illum doloribus alias expedita consequuntur, eligendi ipsam quia exercitationem praesentium dolores, dolor autem qui nisi iure? Expedita rem praesentium beatae dolores accusantium quos. Eius officiis harum distinctio error aut dolor nulla libero ducimus! Iusto quo sequi quisquam excepturi necessitatibus veniam, rerum et alias quam id quia distinctio harum! Molestias natus, consectetur sint minima laborum voluptatem repellendus dolorem dicta doloribus unde nesciunt earum id rerum voluptatibus amet dignissimos!
-    </Container>
+    <Wrapper brand4>
+      <Container>
+        <ContactWrapper>
+          <ContactTitle>
+            Get in Touch
+          </ContactTitle>
+          <Form>
+            <FormTop>
+              <Input>
+                <input
+                  required
+                  type="text"
+                  placeholder="Name"
+                />
+              </Input>
+              <Input>
+                <input
+                  required
+                  type="email"
+                  placeholder="Email"
+                />
+              </Input>
+            </FormTop>
+            <FormBottom>
+              <Input>
+                <textarea
+                  required
+                  placeholder="Message"
+                />
+              </Input>
+            </FormBottom>
+            <Button nav>Submit</Button>
+          </Form>
+        </ContactWrapper>
+      </Container>
+    </Wrapper>
   );
 };
 

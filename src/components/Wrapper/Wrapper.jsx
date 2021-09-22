@@ -4,6 +4,8 @@ export const Wrapper = styled.div`
   ${tw`
     flex
     w-full 
-    justify-center
+    justify-center 
   `}
+
+  ${(props) => props.brand4 && tw`bg-brand-4`}
 `;

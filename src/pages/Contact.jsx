@@ -7,6 +7,7 @@ const Contact = () => {
     <>
       <SpaceTop />
       <PageHeader title="Contact" />
+      <ContactForm />
     </>
   );
 };
