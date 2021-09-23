@@ -22,6 +22,17 @@ export const AboutMeImage = styled.div`
   max-height: 500px;
 `;
 
+export const SocialLinks = styled.div`
+  ${tw`
+    flex
+    absolute 
+    text-2xl
+  `}
+  left: 50%;
+  transform: translateX(-50%);
+  bottom :20px;
+`;
+
 export const AboutMeDetail = styled.div`
   ${tw`
     w-full

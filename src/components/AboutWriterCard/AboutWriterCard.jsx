@@ -4,6 +4,7 @@ import {
   CardWrapper, ImageWrapper, CardName, CardDescription, SocialLinks,
 } from './AboutWriterCard.style';
 import { AidaImage } from '../Wrapper/AidaImage';
+import { SocialLink } from '../SocialLink/SocialLink.style';
 
 const authorImage = 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940';
 
@@ -21,27 +22,27 @@ const AboutWriterCard = ({ horizontal }) => {
       <CardName>Aida Jasmine</CardName>
       <CardDescription>Lorem ipsum dolor sit amet, cons ecte tur adipiscing elit, sed do mod tempor incididunt ut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, nesciunt.</CardDescription>
       <SocialLinks>
-        <a
+        <SocialLink
           target="_blank"
           rel="noopener noreferrer"
           href="https://www.linkedin.com/"
         >
           <AiFillLinkedin />
-        </a>
-        <a
+        </SocialLink>
+        <SocialLink
           target="_blank"
           rel="noopener noreferrer"
           href="https://www.instagram.com/"
         >
           <AiOutlineInstagram />
-        </a>
-        <a
+        </SocialLink>
+        <SocialLink
           target="_blank"
           rel="noopener noreferrer"
           href="https://twitter.com/"
         >
           <AiOutlineTwitter />
-        </a>
+        </SocialLink>
       </SocialLinks>
     </CardWrapper>
   );

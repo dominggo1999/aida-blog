@@ -1,10 +1,12 @@
+import { AiFillLinkedin, AiOutlineInstagram, AiOutlineTwitter } from 'react-icons/ai';
 import Container from '../Wrapper/Container';
 import { Wrapper } from '../Wrapper/Wrapper';
 import {
   AboutMeWrapper, AboutMeDetail, AboutMeImage, Header, Hello, HeaderTitle, DetailContent,
-  DetailColumn,
+  DetailColumn, SocialLinks,
 } from './AboutMe.style';
 import { AidaImage } from '../Wrapper/AidaImage';
+import { SocialLink } from '../SocialLink/SocialLink.style';
 
 const AboutMe = () => {
   return (
@@ -18,6 +20,29 @@ const AboutMe = () => {
                 alt="Me"
               />
             </AidaImage>
+            <SocialLinks>
+              <SocialLink
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.linkedin.com/"
+              >
+                <AiFillLinkedin />
+              </SocialLink>
+              <SocialLink
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.instagram.com/"
+              >
+                <AiOutlineInstagram />
+              </SocialLink>
+              <SocialLink
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://twitter.com/"
+              >
+                <AiOutlineTwitter />
+              </SocialLink>
+            </SocialLinks>
           </AboutMeImage>
           <AboutMeDetail>
             <Header>

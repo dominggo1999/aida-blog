@@ -45,26 +45,4 @@ export const SocialLinks = styled.div`
     text-center
     text-2xl
   `}
-
-  a {
-    ${tw`
-      bg-brand-1
-      rounded-full
-      flex
-      items-center 
-      justify-center
-      mx-1
-      border-2
-      border-transparent
-    `}
-    width: 50px;
-    height: 50px;
-    transition : all ease-in-out 200ms;
-  }
-
-  a:hover {
-    ${tw`
-      border-black
-    `}
-  }
 `;
