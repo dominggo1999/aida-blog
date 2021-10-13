@@ -2,7 +2,6 @@ import { createClient } from 'contentful';
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import BlogContent from '../containers/BlogContent/BlogContent';
-import { BlogPlaceholder } from '../components/Wrapper/BlogPlaceholder';
 import { scrollToTop } from '../util/scrollToTop';
 import BlogHeader from '../components/BlogHeader/BlogHeader';
 import EditorsPicked from '../containers/EditorsPicked/EditorsPicked';
@@ -11,6 +10,7 @@ import { ReadingSection } from '../components/Wrapper/ReadingSection';
 import Container from '../components/Wrapper/Container';
 import AboutWriterCard2 from '../components/AboutWriterCard2/AboutWriterCard2';
 import BlogBottom from '../components/BlogBottom/BlogBottom';
+import SpinnerFullscreen from '../components/SpinnerFullscreen/SpinnerFullscreen';
 
 const client = createClient({
   accessToken: process.env.REACT_APP_CONTENTFUL_API_KEY,
@@ -50,7 +50,7 @@ const BlockSingle = () => {
     getBlog();
   }, []);
 
-  if(!blog) return <BlogPlaceholder />;
+  if(!blog) return <SpinnerFullscreen />;
 
   return (
     <>
