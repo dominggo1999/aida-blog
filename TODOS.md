@@ -1,6 +1,7 @@
-- blog content spinner
+- ~~blog content spinner~~
 - routing
 - disqus comment section
 - modal
 - contact form
 - blog pagination component
+- share blog
