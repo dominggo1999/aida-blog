@@ -29,7 +29,7 @@ const PostCard2 = ({ post }) => {
         <Button bg={bg}>{capitalize(category)}</Button>
         <Link
           onClick={scrollToTop}
-          to="/blog/slug"
+          to="/post/slug"
         >
           <CardTitle>{title}</CardTitle>
         </Link>

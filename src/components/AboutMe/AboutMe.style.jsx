@@ -76,7 +76,7 @@ export const DetailContent = styled.div`
   `}
 `;
 
-export const DetailColumn = styled.p`
+export const DetailColumn = styled.div`
   ${tw`
     font-sans-pro 
     text-semi-black 

@@ -7,10 +7,10 @@ import { getBlogTags } from '../../util/getBlogTags';
 import Button from '../Button/Button';
 import { categoryColors } from '../../data/categoryColors';
 
-const tags = ['geawgew', 'geege', 'wwfqfqwf', 'button', 'button', 'button', 'button', 'button'];
+// const tags = ['geawgew', 'geege', 'wwfqfqwf', 'button', 'button', 'button', 'button', 'button'];
 
 const BlogBottom = ({ blog }) => {
-  // const tags = getBlogTags(blog.fields);
+  const tags = getBlogTags(blog.fields);
 
   return (
     <>

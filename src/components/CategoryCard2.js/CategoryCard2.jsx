@@ -12,7 +12,7 @@ const CategoryCard2 = ({ category }) => {
   return (
     <Link
       onClick={scrollToTop}
-      to={`category/${cat}`}
+      to={`/blog/category/${cat}`}
     >
       <CardWrapper>
         <CardTitle>

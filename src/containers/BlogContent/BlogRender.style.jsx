@@ -14,6 +14,10 @@ export const Content = styled.div`
       mb-3
     `}
   }
+
+  img {
+    ${tw`mb-5`}
+  }
 `;
 
 export const Heading3 = styled.h3`

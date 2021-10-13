@@ -12,7 +12,7 @@ const BlogCodeBlock = ({ codeBlockData }) => {
   return (
     <CodeBlock>
       <SyntaxHighlighter
-        language={codeBlockData.language}
+        language={codeBlockData.programmingLanguage}
         style={vs2015}
       >
         {codeString}

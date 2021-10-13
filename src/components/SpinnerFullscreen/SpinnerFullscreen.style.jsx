@@ -14,6 +14,7 @@ export const SpinnerContainer = styled.div`
     justify-center
     items-center
   `}
+  min-height: 500px;
 `;
 
 export const LoadingText = styled.p`

@@ -9,8 +9,10 @@ import { parseDate } from '../../util/parseDate';
 
 const BlogHeader = ({ blog }) => {
   const {
-    title, publishedDate, mainImage, category, readingTime,
+    title, mainImage, category, readingTime,
   } = blog.fields;
+
+  const publishedDate = blog.sys.createdAt;
 
   const cat = category.fields.category;
   const bg = categoryColors[cat.toLowerCase()];
@@ -32,7 +34,7 @@ const BlogHeader = ({ blog }) => {
         </Flex>
       </HeaderTop>
       <HeaderTitle>
-        30 Best Lifestyle Blogs to Follow in 2021
+        {title}
       </HeaderTitle>
       <HeaderImage>
         <img

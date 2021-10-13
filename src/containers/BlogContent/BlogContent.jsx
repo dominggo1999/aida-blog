@@ -3,7 +3,7 @@ import Container from '../../components/Wrapper/Container';
 import { BlogContentWrapper } from './BlogContent.style';
 import { ReadingSection } from '../../components/Wrapper/ReadingSection';
 import { Content } from './BlogRender.style';
-import { blogRenderOptions } from './blogRenderOptions';
+import { blogRenderOptions } from './BlogRenderOptions';
 
 const BlogContent = ({ blog }) => {
   if(!blog) return null;

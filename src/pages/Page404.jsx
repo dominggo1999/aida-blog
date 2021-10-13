@@ -11,15 +11,15 @@ const Page404 = () => {
   const history = useHistory();
   const homeButton = useRef(null);
 
-  useEffect(() => {
-    const redirectToHomepage = setTimeout(() => {
-      homeButton.current.click();
-    }, 3000);
+  // useEffect(() => {
+  //   const redirectToHomepage = setTimeout(() => {
+  //     homeButton.current.click();
+  //   }, 3000);
 
-    return () => {
-      clearInterval(redirectToHomepage);
-    };
-  }, []);
+  //   return () => {
+  //     clearInterval(redirectToHomepage);
+  //   };
+  // }, []);
 
   return (
     <NotFoundWrapper>

@@ -40,7 +40,7 @@ const CategoryCards = () => {
                   >
                     <Link
                       onClick={scrollToTop}
-                      to={`/category/${category.category}`}
+                      to={`/blog/category/${category.category}`}
                     >
                       <CategoryCard
                         category={category}

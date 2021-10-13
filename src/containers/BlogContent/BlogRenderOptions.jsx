@@ -10,6 +10,7 @@ import {
   UnonderedList,
   OrderedList,
 } from './BlogRender.style';
+import { AidaImage } from '../../components/Wrapper/AidaImage';
 import BlogCodeBlock from './BlogCodeBlock';
 
 export const codeBlogOptions = {

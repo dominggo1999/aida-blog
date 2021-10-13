@@ -1,6 +1,7 @@
 import { createClient } from 'contentful';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
+import { createClient as create } from 'contentful-management';
 import BlogContent from '../containers/BlogContent/BlogContent';
 import { scrollToTop } from '../util/scrollToTop';
 import BlogHeader from '../components/BlogHeader/BlogHeader';
@@ -13,21 +14,30 @@ import BlogBottom from '../components/BlogBottom/BlogBottom';
 import SpinnerFullscreen from '../components/SpinnerFullscreen/SpinnerFullscreen';
 
 const client = createClient({
-  accessToken: process.env.REACT_APP_CONTENTFUL_API_KEY,
-  space: process.env.REACT_APP_SPACE_ID,
+  accessToken: process.env.REACT_APP_CONTENTFUL_AIDA_API_KEY,
+  space: process.env.REACT_APP_CONTENTFUL_SPACE_AIDA,
 });
 
-const blogSlug = 'makan-bang';
+const getData = async () => {
+  const content = await client.getEntries({
+    content_type: 'category',
+  });
+};
+
+getData();
+
+const blogSlug = '30-best-lifestyle-blogs-to-follow-in-2021';
 
 const BlockSingle = () => {
   const history = useHistory();
   const [blog, setBlog] = useState();
+  const mountedRef = useRef(true);
 
   const getBlog = async () => {
     try {
     // THIS SHOULD BE ON TRYCATCH BLOCK
       const res = await client.getEntries({
-        content_type: 'blog',
+        content_type: 'blogPost',
         'fields.slug': blogSlug,
       });
 
@@ -48,6 +58,7 @@ const BlockSingle = () => {
 
   useEffect(() => {
     getBlog();
+    return () => { mountedRef.current = false; };
   }, []);
 
   if(!blog) return <SpinnerFullscreen />;
