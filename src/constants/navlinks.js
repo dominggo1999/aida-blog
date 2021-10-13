@@ -5,14 +5,14 @@ const navlinks = [
     name: 'Home',
   },
   {
-    id: 'about-link',
-    path: '/about',
-    name: 'About',
-  },
-  {
     id: 'blog-link',
     path: '/blog',
     name: 'Blog',
+  },
+  {
+    id: 'about-link',
+    path: '/about',
+    name: 'About',
   },
   {
     id: 'contact-link',
