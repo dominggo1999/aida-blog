@@ -1,0 +1,6 @@
+- blog content spinner
+- routing
+- disqus comment section
+- modal
+- contact form
+- blog pagination component
