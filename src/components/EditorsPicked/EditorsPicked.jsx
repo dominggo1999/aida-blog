@@ -5,20 +5,19 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import React, { useRef } from 'react';
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 import short from 'short-uuid';
-import Container from '../../components/Wrapper/Container';
+import Container from '../Wrapper/Container';
 import {
   EditorsPickedWrapper, Carousel, NavigationNext, NavigationPrev,
 } from './EditorsPicked.style';
 import Slide from './Slide';
-import { PickedPosts } from '../../data/editorspicked';
-import SectionHeader from '../../components/SectionHeader/SectionHeader';
+import SectionHeader from '../SectionHeader/SectionHeader';
 
 // Import Swiper styles
 import 'swiper/swiper-bundle.css';
 
 SwiperCore.use([Navigation, A11y, EffectFade]);
 
-const EditorsPicked = () => {
+const EditorsPicked = ({ blog }) => {
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
 
@@ -59,7 +58,7 @@ const EditorsPicked = () => {
             observeParents
             initialSlide={2}
           >
-            {PickedPosts && PickedPosts.map((item) => {
+            {blog && blog.map((item) => {
               return (
                 <SwiperSlide key={short.generate()}>
                   <Slide

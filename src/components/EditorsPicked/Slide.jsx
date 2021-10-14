@@ -2,14 +2,15 @@ import React from 'react';
 import {
   EditorsPickedSlide, Half, ImageContainer, ContentTop, ContentDate, Time, ContentTitle, Description,
 } from './Slide.style';
-import Button from '../../components/Button/Button';
+import Button from '../Button/Button';
 import { capitalize } from '../../util/capitalize';
 import { categoryColors } from '../../data/categoryColors';
-import { AidaImage } from '../../components/Wrapper/AidaImage';
+import { AidaImage } from '../Wrapper/AidaImage';
+import { parseDate } from '../../util/parseDate';
 
 const Slide = ({ post }) => {
   const {
-    title, category, description, minuteToRead, image,
+    title, category, description, minuteToRead, image, uploadedDate,
   } = post;
 
   const bg = categoryColors[category.toLowerCase()];
@@ -19,7 +20,7 @@ const Slide = ({ post }) => {
       <Half>
         <ContentTop>
           <Button bg={bg}>{capitalize(category)}</Button>
-          <ContentDate>September 15, 2021</ContentDate>
+          <ContentDate>{parseDate(uploadedDate)}</ContentDate>
         </ContentTop>
         <ContentTitle>
           {title}

@@ -20,13 +20,14 @@ export const Half = styled.div`
     lg:w-1/2
     justify-center
     relative
+    bg-transparent
   `}
 
   &:first-child{
     ${tw`lg:pr-2 pb-6 lg:pb-0`}
   }
   &:last-child{
-    ${tw`lg:pl-2 bg-white`}
+    ${tw`lg:pl-2`}
   }
 `;
 

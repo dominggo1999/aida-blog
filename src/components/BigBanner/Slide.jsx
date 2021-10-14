@@ -6,10 +6,11 @@ import Button from '../Button/Button';
 import { capitalize } from '../../util/capitalize';
 import { categoryColors } from '../../data/categoryColors';
 import { AidaImage } from '../Wrapper/AidaImage';
+import { parseDate } from '../../util/parseDate';
 
 const Slide = ({ post }) => {
   const {
-    title, category, description, minuteToRead, image,
+    title, category, description, minuteToRead, image, uploadedDate,
   } = post;
 
   const bg = categoryColors[category.toLowerCase()];
@@ -29,12 +30,12 @@ const Slide = ({ post }) => {
       <Half>
         <ContentTop>
           <Button bg={bg}>{capitalize(category)}</Button>
-          <ContentDate>September 15, 2021</ContentDate>
+          <ContentDate>{parseDate(uploadedDate)}</ContentDate>
         </ContentTop>
         <ContentTitle>
           {title}
         </ContentTitle>
-        <Description>{description}</Description>
+        <Description>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum ex dicta consequuntur sit necessitatibus quo impedit incidunt minima magnam consequatur.</Description>
         <Time>- {minuteToRead} mins to read</Time>
       </Half>
     </BannerSlide>

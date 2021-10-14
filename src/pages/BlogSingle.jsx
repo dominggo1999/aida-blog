@@ -5,26 +5,24 @@ import { createClient as create } from 'contentful-management';
 import BlogContent from '../containers/BlogContent/BlogContent';
 import { scrollToTop } from '../util/scrollToTop';
 import BlogHeader from '../components/BlogHeader/BlogHeader';
-import EditorsPicked from '../containers/EditorsPicked/EditorsPicked';
+import EditorPicked from '../containers/EditorPicked/EditorPicked';
 import { SpaceTop } from '../components/Wrapper/SpaceTop';
 import { ReadingSection } from '../components/Wrapper/ReadingSection';
 import Container from '../components/Wrapper/Container';
 import AboutWriterCard2 from '../components/AboutWriterCard2/AboutWriterCard2';
 import BlogBottom from '../components/BlogBottom/BlogBottom';
 import SpinnerFullscreen from '../components/SpinnerFullscreen/SpinnerFullscreen';
+import client from '../contentful/createClient';
 
-const client = createClient({
-  accessToken: process.env.REACT_APP_CONTENTFUL_AIDA_API_KEY,
-  space: process.env.REACT_APP_CONTENTFUL_SPACE_AIDA,
-});
+// const getData = async () => {
+//   const content = await client.getEntries({
+//     content_type: 'category',
+//   });
 
-const getData = async () => {
-  const content = await client.getEntries({
-    content_type: 'category',
-  });
-};
+//   console.log(content);
+// };
 
-getData();
+// getData();
 
 const blogSlug = '30-best-lifestyle-blogs-to-follow-in-2021';
 
@@ -75,7 +73,7 @@ const BlockSingle = () => {
           <AboutWriterCard2 />
         </ReadingSection>
       </Container>
-      <EditorsPicked />
+      <EditorPicked />
     </>
   );
 };

@@ -2,7 +2,7 @@ import SwiperCore, {
   Navigation, A11y, EffectFade,
 } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 import Container from '../Wrapper/Container';
 import {
@@ -15,7 +15,7 @@ import 'swiper/swiper-bundle.css';
 
 SwiperCore.use([Navigation, A11y, EffectFade]);
 
-const BigBanner = ({ posts }) => {
+const BigBanner = ({ posts, blog }) => {
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
 
@@ -56,7 +56,7 @@ const BigBanner = ({ posts }) => {
             observeParents
             initialSlide={2}
           >
-            {posts && posts.map((item) => {
+            {blog && blog.map((item) => {
               return (
                 <SwiperSlide key={item.id}>
                   <Slide

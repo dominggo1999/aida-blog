@@ -1,17 +1,16 @@
 import { useState, useEffect } from 'react';
 import BigBanner from '../../components/BigBanner/BigBanner';
-import { MainPosts } from '../../data/main';
 import client from '../../contentful/createClient';
 import postListToSliderData from '../../util/postListToSliderData';
-import SpinnerFullScreen from '../../components/SpinnerFullscreen/SpinnerFullscreen';
+import EditorsPicked from '../../components/EditorsPicked/EditorsPicked';
 
-const MainBanner = () => {
+const EditorPicked = () => {
   const [blog, setBlog] = useState();
 
   const getBlog = async () => {
     try {
       const res = await client.getEntries({
-        content_type: 'heroSlider',
+        content_type: 'authorPicks',
       });
 
       const entries = res.includes.Entry.map((i) => {
@@ -36,15 +35,14 @@ const MainBanner = () => {
   }, []);
 
   if(!blog) {
-    return <SpinnerFullScreen />;
+    return null;
   }
 
   return (
-    <BigBanner
+    <EditorsPicked
       blog={blog}
-      posts={MainPosts}
     />
   );
 };
 
-export default MainBanner;
+export default EditorPicked;
