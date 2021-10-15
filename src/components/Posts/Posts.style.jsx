@@ -10,6 +10,8 @@ export const PostsGrid = styled.div`
 
 export const PostsListWithSidebar = styled(PostsGrid)`
   ${tw`
+    flex-col
+    justify-start
     w-full
     xl:w-2/3
     pr-0

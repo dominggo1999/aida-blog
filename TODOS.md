@@ -1,5 +1,5 @@
 - ~~blog content spinner~~
-- routing
+- ~~routing~~
 - disqus comment section
 - modal
 - contact form

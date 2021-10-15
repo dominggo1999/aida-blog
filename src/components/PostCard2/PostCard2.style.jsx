@@ -10,6 +10,7 @@ export const CardWrapper = styled.article`
     overflow-hidden
     mb-10
     shadow-button
+    flex-grow-0
   `}
 `;
 
