@@ -23,6 +23,8 @@ const MainBanner = () => {
         };
       });
 
+      // console.log(entries);
+
       const final = await postListToSliderData(entries);
 
       setBlog(final);

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   BannerSlide, Half, ImageContainer, ContentTop, ContentDate, Time, ContentTitle, Description,
 } from './Slide.style';
@@ -10,7 +11,7 @@ import { parseDate } from '../../util/parseDate';
 
 const Slide = ({ post }) => {
   const {
-    title, category, description, minuteToRead, image, uploadedDate,
+    title, category, description, minuteToRead, image, uploadedDate, slug,
   } = post;
 
   const bg = categoryColors[category.toLowerCase()];
@@ -33,7 +34,9 @@ const Slide = ({ post }) => {
           <ContentDate>{parseDate(uploadedDate)}</ContentDate>
         </ContentTop>
         <ContentTitle>
-          {title}
+          <Link to={`/post/${slug}`}>
+            {title}
+          </Link>
         </ContentTitle>
         <Description>{description}</Description>
         <Time>- {minuteToRead} mins to read</Time>

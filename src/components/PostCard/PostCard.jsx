@@ -1,17 +1,18 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 import {
-  CardWrapper, CardImage, CardContent, CardTitle, CardDate, CardTime,
+  CardWrapper, CardImage, CardContent, CardTitle, CardDate, CardTime, CardBottomSpace,
 } from './PostCard.style';
 import Button from '../Button/Button';
 import { capitalize } from '../../util/capitalize';
 import { categoryColors } from '../../data/categoryColors';
 import { AidaImage } from '../Wrapper/AidaImage';
 import { scrollToTop } from '../../util/scrollToTop';
+import { parseDate } from '../../util/parseDate';
 
 const PostCard = ({ post, col, readTime }) => {
   const {
-    title, image, minuteToRead, category,
+    title, image, minuteToRead, category, uploadedDate, slug,
   } = post;
   const bg = categoryColors[category.toLowerCase()];
 
@@ -28,16 +29,21 @@ const PostCard = ({ post, col, readTime }) => {
           <Button bg={bg}>{capitalize(category)}</Button>
         </CardImage>
         <CardContent>
-          <CardDate>- September 10 2021</CardDate>
+          <CardDate>{parseDate(uploadedDate)}</CardDate>
           <div>
             <Link
               onClick={scrollToTop}
-              to="/"
+              to={`/post/${slug}`}
             >
               <CardTitle readTime={readTime}>{title}</CardTitle>
             </Link>
           </div>
-          {readTime && <CardTime>{minuteToRead} mins to read</CardTime>}
+          {readTime && (
+            <>
+              <CardTime>{minuteToRead} mins to read</CardTime>
+              <CardBottomSpace />
+            </>
+          )}
         </CardContent>
       </CardWrapper>
 

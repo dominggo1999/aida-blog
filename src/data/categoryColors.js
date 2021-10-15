@@ -6,6 +6,7 @@ export const categoryColors = {
   lifestyle: '#FFCDA3',
   food: '#E6BF7E',
   fashion: '#99CC8D',
+  technology: '#99CC8D',
   cooking: '#EB957C',
   art: '#0493EA',
   gray: '#474747',

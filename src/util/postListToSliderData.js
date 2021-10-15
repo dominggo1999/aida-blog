@@ -2,7 +2,6 @@ import client from '../contentful/createClient';
 
 const getCategory = async (id) => {
   try {
-    // THIS SHOULD BE ON TRYCATCH BLOCK
     const res = await client.getEntry(id);
     return res.fields.category;
   } catch (error) {
@@ -17,7 +16,7 @@ const getImage = (image) => {
 const postListToSliderData = (list) => {
   const formattedList = Promise.all(list.map(async (i) => {
     const {
-      title, readingTime, id, uploadedDate, description,
+      title, readingTime, id, uploadedDate, description, slug,
     } = i;
     const category = await getCategory(i.category.sys.id);
     const image = getImage(i.mainImage);
@@ -30,6 +29,7 @@ const postListToSliderData = (list) => {
       minuteToRead: readingTime,
       uploadedDate,
       description,
+      slug,
     };
   }));
 

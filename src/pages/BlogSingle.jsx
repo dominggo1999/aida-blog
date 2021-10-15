@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { createClient } from 'contentful-management';
 import BlogContent from '../containers/BlogContent/BlogContent';
 import { scrollToTop } from '../util/scrollToTop';
@@ -18,7 +18,32 @@ const c = createClient({
 });
 
 const getData = async () => {
+  c.getSpace(process.env.REACT_APP_CONTENTFUL_SPACE_AIDA)
+    .then((space) => space.getEnvironment('master'))
+    .then((environment) => environment.getEntries({
+      content_type: 'blogPost',
+    }))
+    .then(async (response) => {
+      let a = await response.items.slice(0, 100);
 
+      a = await Promise.all(a.map((i) => {
+        // const newDesc = descs[Math.floor(Math.random() * descs.length)];
+
+        const randViews = 5 + Math.floor(Math.random() * 20);
+
+        i.fields.readingTime = {
+          'en-US': randViews,
+        };
+
+        return i;
+      }));
+
+      // a.fields.description = {
+      //   'en-US': 'JUST TESTING',
+      // };
+      // return a.update();
+    })
+    .catch(console.error);
 };
 
 getData();
@@ -27,15 +52,18 @@ const blogSlug = '30-best-lifestyle-blogs-to-follow-in-2021';
 
 const BlockSingle = () => {
   const history = useHistory();
+  const { slug } = useParams();
   const [blog, setBlog] = useState();
   const mountedRef = useRef(true);
+  const [loading, setLoading] = useState(false);
 
   const getBlog = async () => {
+    setLoading(true);
     try {
     // THIS SHOULD BE ON TRYCATCH BLOCK
       const res = await client.getEntries({
         content_type: 'blogPost',
-        'fields.slug': blogSlug,
+        'fields.slug': slug === 'slug' ? blogSlug : slug,
       });
 
       // REDIRECT TO 404 PAGE IF BLOCK DOESN'T
@@ -43,6 +71,7 @@ const BlockSingle = () => {
       const blog = res.items[0];
       if(blog) {
         setBlog(blog);
+        setLoading(false);
       }else{
         history.push('/404');
       }
@@ -56,9 +85,9 @@ const BlockSingle = () => {
   useEffect(() => {
     getBlog();
     return () => { mountedRef.current = false; };
-  }, []);
+  }, [slug]);
 
-  if(!blog) return <SpinnerFullscreen />;
+  if(loading || !blog) return <SpinnerFullscreen />;
 
   return (
     <>

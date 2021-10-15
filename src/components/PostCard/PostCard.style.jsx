@@ -90,6 +90,12 @@ export const CardContent = styled.div`
   `}
 `;
 
+export const CardBottomSpace = styled.div`
+  ${tw`
+    p-3
+  `}
+`;
+
 export const CardDate = styled.p`
   ${tw`
     text-gray-2
