@@ -8,10 +8,11 @@ import { capitalize } from '../../util/capitalize';
 import { categoryColors } from '../../data/categoryColors';
 import { AidaImage } from '../Wrapper/AidaImage';
 import { scrollToTop } from '../../util/scrollToTop';
+import { parseDate } from '../../util/parseDate';
 
 const PostCard2 = ({ post }) => {
   const {
-    title, image, minuteToRead, category,
+    title, image, minuteToRead, category, uploadedDate, slug,
   } = post;
   const bg = categoryColors[category.toLowerCase()];
 
@@ -26,14 +27,20 @@ const PostCard2 = ({ post }) => {
         </AidaImage>
       </CardImage>
       <CardContent>
-        <Button bg={bg}>{capitalize(category)}</Button>
+        <Link to={`/blog/category/${category.toLowerCase()}`}>
+          <Button
+            onClick={scrollToTop}
+            bg={bg}
+          >{capitalize(category)}
+          </Button>
+        </Link>
         <Link
           onClick={scrollToTop}
-          to="/post/slug"
+          to={`/post/${slug}`}
         >
           <CardTitle>{title}</CardTitle>
         </Link>
-        <CardDate>September 11, 2021</CardDate>
+        <CardDate>{parseDate(uploadedDate)}</CardDate>
         <CardTimeToRead>{minuteToRead} mins to read</CardTimeToRead>
       </CardContent>
     </CardWrapper>

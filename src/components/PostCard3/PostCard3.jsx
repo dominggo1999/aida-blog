@@ -5,9 +5,12 @@ import {
 } from './PostCard3.style';
 import { AidaImage } from '../Wrapper/AidaImage';
 import { scrollToTop } from '../../util/scrollToTop';
+import { parseDate } from '../../util/parseDate';
 
 const PostCard3 = ({ post }) => {
-  const { title, image } = post;
+  const {
+    title, image, slug, uploadedDate,
+  } = post;
 
   return (
     <CardWrapper>
@@ -23,13 +26,13 @@ const PostCard3 = ({ post }) => {
         <CardTitle>
           <Link
             onClick={scrollToTop}
-            to="/blog"
+            to={`/post/${slug}`}
           >
             {title}
           </Link>
         </CardTitle>
         <CardDate>
-          20 September 2021
+          {parseDate(uploadedDate)}
         </CardDate>
       </CardContent>
     </CardWrapper>

@@ -26,7 +26,13 @@ const PostCard = ({ post, col, readTime }) => {
               alt="Cool"
             />
           </AidaImage>
-          <Button bg={bg}>{capitalize(category)}</Button>
+          <Link to={`/blog/category/${category.toLowerCase()}`}>
+            <Button
+              onClick={scrollToTop}
+              bg={bg}
+            >{capitalize(category)}
+            </Button>
+          </Link>
         </CardImage>
         <CardContent>
           <CardDate>{parseDate(uploadedDate)}</CardDate>

@@ -8,6 +8,7 @@ import { capitalize } from '../../util/capitalize';
 import { categoryColors } from '../../data/categoryColors';
 import { AidaImage } from '../Wrapper/AidaImage';
 import { parseDate } from '../../util/parseDate';
+import { scrollToTop } from '../../util/scrollToTop';
 
 const Slide = ({ post }) => {
   const {
@@ -20,11 +21,20 @@ const Slide = ({ post }) => {
     <EditorsPickedSlide>
       <Half>
         <ContentTop>
-          <Button bg={bg}>{capitalize(category)}</Button>
+          <Link to={`/blog/category/${category.toLowerCase()}`}>
+            <Button
+              onClick={scrollToTop}
+              bg={bg}
+            >{capitalize(category)}
+            </Button>
+          </Link>
           <ContentDate>{parseDate(uploadedDate)}</ContentDate>
         </ContentTop>
         <ContentTitle>
-          <Link to={`/post/${slug}`}>
+          <Link
+            onClick={scrollToTop}
+            to={`/post/${slug}`}
+          >
             {title}
           </Link>
         </ContentTitle>

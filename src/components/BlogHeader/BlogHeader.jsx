@@ -1,11 +1,14 @@
 import React from 'react';
 import { BiTimeFive } from 'react-icons/bi';
+import { Link } from 'react-router-dom';
 import {
   HeaderTop, HeaderTitle, HeaderDate, HeaderReadingTime, Flex, HeaderImage,
 } from './BlogHeader.style';
 import Button from '../Button/Button';
 import { categoryColors } from '../../data/categoryColors';
 import { parseDate } from '../../util/parseDate';
+import { capitalize } from '../../util/capitalize';
+import { scrollToTop } from '../../util/scrollToTop';
 
 const BlogHeader = ({ blog }) => {
   const {
@@ -23,7 +26,13 @@ const BlogHeader = ({ blog }) => {
     <>
       <HeaderTop>
         <Flex>
-          <Button bg={bg}>{cat}</Button>
+          <Link to={`/blog/category/${cat}`}>
+            <Button
+              onClick={scrollToTop}
+              bg={bg}
+            >{capitalize(cat)}
+            </Button>
+          </Link>
           <HeaderDate>{parseDate(publishedDate)}</HeaderDate>
         </Flex>
         <Flex>

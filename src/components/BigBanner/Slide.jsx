@@ -30,7 +30,9 @@ const Slide = ({ post }) => {
       </Half>
       <Half>
         <ContentTop>
-          <Button bg={bg}>{capitalize(category)}</Button>
+          <Link to={`/blog/category/${category.toLowerCase()}`}>
+            <Button bg={bg}>{capitalize(category)}</Button>
+          </Link>
           <ContentDate>{parseDate(uploadedDate)}</ContentDate>
         </ContentTop>
         <ContentTitle>

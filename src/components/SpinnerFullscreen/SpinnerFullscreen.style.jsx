@@ -13,6 +13,8 @@ export const SpinnerContainer = styled.div`
     flex-col
     justify-center
     items-center
+    top-0 
+    left-0
   `}
   min-height: 500px;
 `;
