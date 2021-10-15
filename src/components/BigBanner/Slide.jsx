@@ -35,7 +35,7 @@ const Slide = ({ post }) => {
         <ContentTitle>
           {title}
         </ContentTitle>
-        <Description>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum ex dicta consequuntur sit necessitatibus quo impedit incidunt minima magnam consequatur.</Description>
+        <Description>{description}</Description>
         <Time>- {minuteToRead} mins to read</Time>
       </Half>
     </BannerSlide>

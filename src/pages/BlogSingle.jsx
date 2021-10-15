@@ -1,7 +1,6 @@
-import { createClient } from 'contentful';
 import { useEffect, useState, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
-import { createClient as create } from 'contentful-management';
+import { createClient } from 'contentful-management';
 import BlogContent from '../containers/BlogContent/BlogContent';
 import { scrollToTop } from '../util/scrollToTop';
 import BlogHeader from '../components/BlogHeader/BlogHeader';
@@ -14,15 +13,15 @@ import BlogBottom from '../components/BlogBottom/BlogBottom';
 import SpinnerFullscreen from '../components/SpinnerFullscreen/SpinnerFullscreen';
 import client from '../contentful/createClient';
 
-// const getData = async () => {
-//   const content = await client.getEntries({
-//     content_type: 'category',
-//   });
+const c = createClient({
+  accessToken: process.env.REACT_APP_CONTENTFUL_MANAGEMENT_KEY,
+});
 
-//   console.log(content);
-// };
+const getData = async () => {
 
-// getData();
+};
+
+getData();
 
 const blogSlug = '30-best-lifestyle-blogs-to-follow-in-2021';
 

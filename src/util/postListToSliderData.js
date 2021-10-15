@@ -17,7 +17,7 @@ const getImage = (image) => {
 const postListToSliderData = (list) => {
   const formattedList = Promise.all(list.map(async (i) => {
     const {
-      title, readingTime, id, uploadedDate,
+      title, readingTime, id, uploadedDate, description,
     } = i;
     const category = await getCategory(i.category.sys.id);
     const image = getImage(i.mainImage);
@@ -29,6 +29,7 @@ const postListToSliderData = (list) => {
       image,
       minuteToRead: readingTime,
       uploadedDate,
+      description,
     };
   }));
 
