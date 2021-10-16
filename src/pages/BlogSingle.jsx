@@ -12,6 +12,7 @@ import AboutWriterCard2 from '../components/AboutWriterCard2/AboutWriterCard2';
 import BlogBottom from '../components/BlogBottom/BlogBottom';
 import SpinnerFullscreen from '../components/SpinnerFullscreen/SpinnerFullscreen';
 import client from '../contentful/createClient';
+import CommentSection from '../components/CommentSection/CommentSection';
 
 const a = ['Less Than 5 Minutes', 'Inspiration', 'Easy Read', 'Simple', 'English', 'Modern', 'Superb'];
 
@@ -121,6 +122,7 @@ const BlockSingle = () => {
           <hr />
           <BlogBottom blog={blog} />
           <AboutWriterCard2 />
+          <CommentSection blog={blog} />
         </ReadingSection>
       </Container>
       <EditorPicked />
