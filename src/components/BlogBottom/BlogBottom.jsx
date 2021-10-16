@@ -1,16 +1,17 @@
 import short from 'short-uuid';
 import { FaFacebookF, FaTwitter, FaPinterestP } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import {
   BlogBottomWrapper, Tags, ShareAction, ShareActionText, ShareActionList, TagsHeader, ShareButton, ShareActionRow,
 } from './BlogBottom.style';
-import { getBlogTags } from '../../util/getBlogTags';
 import Button from '../Button/Button';
 import { categoryColors } from '../../data/categoryColors';
+import { scrollToTop } from '../../util/scrollToTop';
 
 // const tags = ['geawgew', 'geege', 'wwfqfqwf', 'button', 'button', 'button', 'button', 'button'];
 
 const BlogBottom = ({ blog }) => {
-  const tags = getBlogTags(blog.fields);
+  const tags = blog.fields.tags;
 
   return (
     <>
@@ -18,13 +19,18 @@ const BlogBottom = ({ blog }) => {
       <BlogBottomWrapper>
         <Tags>
           {
-            tags && tags.map((item) => {
+            tags && tags.map((tag) => {
               return (
-                <Button
-                  bg={categoryColors.brand2}
+                <Link
                   key={short.generate()}
-                >{item}
-                </Button>
+                  to={`/blog/tag/${tag}`}
+                >
+                  <Button
+                    onClick={scrollToTop}
+                    bg={categoryColors.brand2}
+                  >{tag}
+                  </Button>
+                </Link>
               );
             })
           }

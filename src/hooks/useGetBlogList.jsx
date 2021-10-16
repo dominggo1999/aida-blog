@@ -37,6 +37,15 @@ const useGetBlogList = (params, setLoading) => {
       };
       pageTitle = categoryId;
     }
+
+    if(tagId) {
+      query = {
+        ...query,
+        limit: 5,
+        'fields.tags': tagId,
+      };
+      pageTitle = tagId;
+    }
   }
 
   if(pageNumberValid(page)) {
@@ -57,6 +66,16 @@ const useGetBlogList = (params, setLoading) => {
         'fields.category.fields.category[match]': categoryId,
       };
       pageTitle = categoryId;
+    }
+
+    if(!categoryId && tagId) {
+      query = {
+        ...query,
+        limit: 5,
+        skip: (page - 1) * 5,
+        'fields.tags': tagId,
+      };
+      pageTitle = tagId;
     }
   }
 

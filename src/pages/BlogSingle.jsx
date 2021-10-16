@@ -13,42 +13,66 @@ import BlogBottom from '../components/BlogBottom/BlogBottom';
 import SpinnerFullscreen from '../components/SpinnerFullscreen/SpinnerFullscreen';
 import client from '../contentful/createClient';
 
+const a = ['Less Than 5 Minutes', 'Inspiration', 'Easy Read', 'Simple', 'English', 'Modern', 'Superb'];
+
+const genTags = () => {
+  // Salin array
+  const b = [...a];
+  // Randomize berapa tags yang harus diambil
+  const r = Math.floor(Math.random() * b.length);
+
+  const choosenTags = [];
+  for (let i = 0; i < r; i += 1) {
+    // Randomize nomor berapa yang harus diambil
+    const r2 = Math.floor(Math.random() * b.length);
+    const choose = b.splice(r2, 1)[0];
+    choosenTags.push(choose);
+  }
+
+  if(choosenTags.length === 0) {
+    choosenTags.push(b[r]);
+  }
+
+  return choosenTags;
+};
+
 const c = createClient({
   accessToken: process.env.REACT_APP_CONTENTFUL_MANAGEMENT_KEY,
 });
 
-const getData = async () => {
-  c.getSpace(process.env.REACT_APP_CONTENTFUL_SPACE_AIDA)
-    .then((space) => space.getEnvironment('master'))
-    .then((environment) => environment.getEntries({
-      content_type: 'blogPost',
-    }))
-    .then(async (response) => {
-      let a = await response.items.slice(0, 100);
+// const getData = async () => {
+//   c.getSpace(process.env.REACT_APP_CONTENTFUL_SPACE_AIDA)
+//     .then((space) => space.getEnvironment('master'))
+//     .then((environment) => environment.getEntries({
+//       content_type: 'blogPost',
+//       skip: 100,
+//     }))
+//     .then(async (response) => {
+//       let a = await response.items.slice(0, 100);
 
-      a = await Promise.all(a.map((i) => {
-        // const newDesc = descs[Math.floor(Math.random() * descs.length)];
+//       a = await Promise.all(a.map((i) => {
+//         i.fields.tags = {
+//           'en-US': genTags(),
+//         };
 
-        const randViews = 5 + Math.floor(Math.random() * 20);
+//         return i.update();
+//       }));
 
-        i.fields.readingTime = {
-          'en-US': randViews,
-        };
+//       // // return a.update();
+//     })
+//     .catch(console.error);
+// };
 
-        return i;
-      }));
+// getData();
 
-      // a.fields.description = {
-      //   'en-US': 'JUST TESTING',
-      // };
-      // return a.update();
-    })
-    .catch(console.error);
+const justTesting = async () => {
+  const res = await client.getEntries({
+    content_type: 'blogPost',
+    'fields.tags': 'English',
+  });
 };
 
-getData();
-
-const blogSlug = '30-best-lifestyle-blogs-to-follow-in-2021';
+justTesting();
 
 const BlockSingle = () => {
   const history = useHistory();
@@ -63,10 +87,8 @@ const BlockSingle = () => {
     // THIS SHOULD BE ON TRYCATCH BLOCK
       const res = await client.getEntries({
         content_type: 'blogPost',
-        'fields.slug': slug === 'slug' ? blogSlug : slug,
+        'fields.slug': slug,
       });
-
-      // REDIRECT TO 404 PAGE IF BLOCK DOESN'T
 
       const blog = res.items[0];
       if(blog) {
