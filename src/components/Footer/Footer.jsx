@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import short from 'short-uuid';
-import React from 'react';
+import { useEffect, useState } from 'react';
 import Container from '../Wrapper/Container';
 import {
   FooterWrapper, FooterTop, FooterTopRight, FooterContent, Logo, FooterTextBold, Line, ContentTitle, FooterCol,
@@ -10,12 +10,33 @@ import {
 } from './Footer.style';
 import { categoryColors } from '../../data/categoryColors';
 import Button from '../Button/Button';
-import { categories } from '../../data/categories';
+// import { categories } from '../../data/categories';
 import SubscribeNewsletter from '../SubscribeNewsletter/SubscribeNewsletter';
 import { scrollToTop } from '../../util/scrollToTop';
+import client from '../../contentful/createClient';
 
 const Footer = () => {
   const { brand1, gray } = categoryColors;
+  const [categories, setCategories] = useState();
+
+  const getBlog = async () => {
+    try {
+      const res = await client.getEntries({
+        content_type: 'category',
+        limit: 10,
+      });
+
+      const list = res.items.map((i) => i.fields.category);
+
+      setCategories(list);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getBlog();
+  }, []);
 
   return (
     <>
@@ -94,20 +115,25 @@ const Footer = () => {
 
               <FooterCol perFour>
                 <ContentTitle>
-                  <FooterTextBold>Tagcloud</FooterTextBold>
+                  <FooterTextBold>Categories</FooterTextBold>
                 </ContentTitle>
                 {
-                categories && categories.map((item) => {
-                  return (
-                    <Button
-                      bg={gray}
-                      key={short.generate()}
-                    >
-                      {item.category}
-                    </Button>
-                  );
-                })
-              }
+                  categories && categories.map((category) => {
+                    return (
+                      <Link
+                        key={short.generate()}
+                        to={`/blog/category/${category.toLowerCase()}`}
+                      >
+                        <Button
+                          onClick={scrollToTop}
+                          bg={gray}
+                        >
+                          {category}
+                        </Button>
+                      </Link>
+                    );
+                  })
+                }
               </FooterCol>
 
             </FooterContent>

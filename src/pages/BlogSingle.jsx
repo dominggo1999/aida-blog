@@ -65,14 +65,14 @@ const c = createClient({
 
 // getData();
 
-const justTesting = async () => {
-  const res = await client.getEntries({
-    content_type: 'blogPost',
-    'fields.tags': 'English',
-  });
-};
+// const justTesting = async () => {
+//   const res = await client.getEntries({
+//     content_type: 'blogPost',
+//     'fields.tags': 'English',
+//   });
+// };
 
-justTesting();
+// justTesting();
 
 const BlockSingle = () => {
   const history = useHistory();
