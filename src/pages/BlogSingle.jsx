@@ -85,7 +85,6 @@ const BlockSingle = () => {
   const getBlog = async () => {
     setLoading(true);
     try {
-    // THIS SHOULD BE ON TRYCATCH BLOCK
       const res = await client.getEntries({
         content_type: 'blogPost',
         'fields.slug': slug,

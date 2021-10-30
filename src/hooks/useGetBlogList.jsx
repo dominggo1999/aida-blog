@@ -21,6 +21,7 @@ const useGetBlogList = (params, setLoading) => {
   };
 
   if(!pageNumber) {
+    // Semua blog untuk halaman 1
     if(!categoryId && !tagId) {
       query = {
         ...query,
@@ -28,6 +29,7 @@ const useGetBlogList = (params, setLoading) => {
       };
     }
 
+    // Semua blog di category id halaman 1
     if(categoryId) {
       query = {
         ...query,
@@ -38,6 +40,7 @@ const useGetBlogList = (params, setLoading) => {
       pageTitle = categoryId;
     }
 
+    // Semua blog di tag id halaman 1
     if(tagId) {
       query = {
         ...query,
@@ -49,6 +52,7 @@ const useGetBlogList = (params, setLoading) => {
   }
 
   if(pageNumberValid(page)) {
+    // Semua blog di halaman ke sekian
     if(!categoryId && !tagId) {
       query = {
         ...query,
@@ -57,6 +61,7 @@ const useGetBlogList = (params, setLoading) => {
       };
     }
 
+    // Semua blog di category id di halaman ke sekian
     if(categoryId && !tagId) {
       query = {
         ...query,
@@ -68,6 +73,7 @@ const useGetBlogList = (params, setLoading) => {
       pageTitle = categoryId;
     }
 
+    // Semua blog di tag id di halaman ke sekian
     if(!categoryId && tagId) {
       query = {
         ...query,

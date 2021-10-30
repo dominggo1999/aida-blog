@@ -5,10 +5,9 @@ import { BlogListWrapper, List } from './BlogList.style';
 import Posts from '../../components/Posts/Posts';
 import PostCard2 from '../../components/PostCard2/PostCard2';
 import BlogListSidebar from '../BlogListSidebar/BlogListSidebar';
+import Pagination from '../../components/Pagination/Pagination';
 
-// State nya harus di pass dari page, bukan disini, karena untuk list blog dari category atau tag tertentu pakainya blog list ini juga
-
-const BlogList = ({ posts }) => {
+const BlogList = ({ posts, params, total }) => {
   return (
     <BlogListWrapper>
       <Container>
@@ -23,6 +22,15 @@ const BlogList = ({ posts }) => {
                   />
                 );
               })
+            }
+            {
+              total > 0
+              && (
+              <Pagination
+                params={params}
+                total={total}
+              />
+              )
             }
           </Posts>
           <BlogListSidebar />

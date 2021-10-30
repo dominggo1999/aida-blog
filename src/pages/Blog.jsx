@@ -29,7 +29,11 @@ const Blog = () => {
         num={total}
         blog
       />
-      <BlogList posts={blogList} />
+      <BlogList
+        posts={blogList}
+        total={total}
+        params={params}
+      />
       <EditorPicked />
     </>
   );
