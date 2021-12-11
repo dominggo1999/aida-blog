@@ -1,6 +1,7 @@
 import short from 'short-uuid';
 import { FaFacebookF, FaTwitter, FaPinterestP } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import React from 'react';
 import {
   BlogBottomWrapper, Tags, ShareAction, ShareActionText, ShareActionList, TagsHeader, ShareButton, ShareActionRow,
 } from './BlogBottom.style';

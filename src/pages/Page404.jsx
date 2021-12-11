@@ -1,5 +1,5 @@
 import { Link, useHistory } from 'react-router-dom';
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import {
   NotFoundWrapper, NotFound, NotFoundText, NotFoundDescription, NotFoundMessage,
 } from '../styles/NotFound.style';

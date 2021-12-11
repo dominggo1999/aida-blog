@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import BigBanner from '../../components/BigBanner/BigBanner';
 import { MainPosts } from '../../data/main';
 import client from '../../contentful/createClient';

@@ -1,5 +1,5 @@
 import short from 'short-uuid';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Posts from '../../components/Posts/Posts';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import { popularPosts } from '../../data/popularPosts';

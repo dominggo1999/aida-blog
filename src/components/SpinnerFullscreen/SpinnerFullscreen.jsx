@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   SpinnerContainer, Spinner, Skeleton, LoadingText,
 } from './SpinnerFullscreen.style';

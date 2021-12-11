@@ -1,4 +1,5 @@
 import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
+import React from 'react';
 import {
   Paragraph,
   Heading3,

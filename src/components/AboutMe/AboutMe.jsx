@@ -1,4 +1,5 @@
 import { AiFillLinkedin, AiOutlineInstagram, AiOutlineTwitter } from 'react-icons/ai';
+import React from 'react';
 import Container from '../Wrapper/Container';
 import { Wrapper } from '../Wrapper/Wrapper';
 import {

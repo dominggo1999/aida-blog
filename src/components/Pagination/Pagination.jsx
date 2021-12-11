@@ -1,5 +1,6 @@
 import { useHistory } from 'react-router-dom';
 import short from 'short-uuid';
+import React from 'react';
 import { PaginationContainer, NavBtn } from './Pagination.style';
 import Button from '../Button/Button';
 import { scrollToTop } from '../../util/scrollToTop';

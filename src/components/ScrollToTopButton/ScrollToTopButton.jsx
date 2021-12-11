@@ -1,6 +1,8 @@
+/* eslint-disable import/no-unresolved */
 import { animateScroll } from 'react-scroll';
+import React from 'react';
 import { ScrollButton } from './ScrollToTopButton.style';
-import { ReactComponent as UpArrow } from '../../assets/upwards-arrow.svg';
+import { ReactComponent as Arrow }from '../../assets/upwards-arrow.svg';
 
 const ScrollToTopButton = () => {
   const scrollToTop = () => {
@@ -12,7 +14,7 @@ const ScrollToTopButton = () => {
 
   return (
     <ScrollButton onClick={scrollToTop}>
-      <UpArrow />
+      <Arrow />
     </ScrollButton>
   );
 };
