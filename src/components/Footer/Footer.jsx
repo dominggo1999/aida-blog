@@ -1,6 +1,6 @@
+import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import short from 'short-uuid';
-import React, { useEffect, useState } from 'react';
 import Container from '../Wrapper/Container';
 import {
   FooterWrapper, FooterTop, FooterTopRight, FooterContent, Logo, FooterTextBold, Line, ContentTitle, FooterCol,
@@ -19,7 +19,7 @@ const Footer = () => {
   const { brand1, gray } = categoryColors;
   const [categories, setCategories] = useState();
 
-  const getBlog = async () => {
+  const getBlog = async (isSubscribed) => {
     try {
       const res = await client.getEntries({
         content_type: 'category',
@@ -28,14 +28,22 @@ const Footer = () => {
 
       const list = res.items.map((i) => i.fields.category);
 
-      setCategories(list);
+      if(isSubscribed) {
+        setCategories(list);
+      }
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    getBlog();
+    let isSubscribed = true;
+
+    getBlog(isSubscribed);
+
+    return () => {
+      isSubscribed = false;
+    };
   }, []);
 
   return (

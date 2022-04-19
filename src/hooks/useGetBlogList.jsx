@@ -85,7 +85,7 @@ const useGetBlogList = (params, setLoading) => {
     }
   }
 
-  const getBlog = async () => {
+  const getBlog = async (isSubscribed) => {
     try {
       const res = await client.getEntries(query);
       setTotal(res.total);
@@ -99,16 +99,25 @@ const useGetBlogList = (params, setLoading) => {
       });
 
       const final = await postListToSliderData(entries);
-      setBlogList(final);
-      setLoading(false);
+
+      if(isSubscribed) {
+        setBlogList(final);
+        setLoading(false);
+      }
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
+    let isSubscribed = true;
+
     setLoading(true);
-    getBlog();
+    getBlog(isSubscribed);
+
+    return () => {
+      isSubscribed = false;
+    };
   }, [params]);
 
   return [blogList, total, pageTitle];

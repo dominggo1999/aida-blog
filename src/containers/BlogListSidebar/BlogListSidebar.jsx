@@ -43,7 +43,13 @@ const BlogListSidebar = () => {
   };
 
   useEffect(() => {
-    getBlog();
+    let isSubscribed = true;
+
+    getBlog(isSubscribed);
+
+    return () => {
+      isSubscribed = false;
+    };
   }, []);
 
   if(!blog) {

@@ -17,7 +17,7 @@ const BlockSingle = () => {
   const history = useHistory();
   const { slug } = useParams();
   const [blog, setBlog] = useState();
-  const mountedRef = useRef(true);
+  const isSubscribed = useRef(true);
   const [loading, setLoading] = useState(false);
 
   const getBlog = async () => {
@@ -29,14 +29,17 @@ const BlockSingle = () => {
       });
 
       const blog = res.items[0];
-      if(blog) {
-        setBlog(blog);
-        setLoading(false);
-      }else{
-        history.push('/404');
-      }
 
-      scrollToTop();
+      if(isSubscribed.current) {
+        if(blog) {
+          setBlog(blog);
+          setLoading(false);
+        }else{
+          history.push('/404');
+        }
+
+        scrollToTop();
+      }
     } catch (error) {
       console.log(error);
     }
@@ -44,10 +47,12 @@ const BlockSingle = () => {
 
   useEffect(() => {
     getBlog();
-    return () => { mountedRef.current = false; };
+    return () => { isSubscribed.current = false; };
   }, [slug]);
 
-  if(loading || !blog) return <SpinnerFullscreen />;
+  if(loading) return <SpinnerFullscreen />;
+
+  if(!blog) return null;
 
   return (
     <>

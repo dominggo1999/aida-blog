@@ -7,7 +7,7 @@ import EditorsPicked from '../../components/EditorsPicked/EditorsPicked';
 const EditorPicked = () => {
   const [blog, setBlog] = useState();
 
-  const getBlog = async () => {
+  const getBlog = async (isSubscribed) => {
     try {
       const res = await client.getEntries({
         content_type: 'authorPicks',
@@ -23,15 +23,22 @@ const EditorPicked = () => {
       });
 
       const final = await postListToSliderData(entries);
-
-      setBlog(final);
+      if(isSubscribed) {
+        setBlog(final);
+      }
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    getBlog();
+    let isSubscribed = true;
+
+    getBlog(isSubscribed);
+
+    return () => {
+      isSubscribed = false;
+    };
   }, []);
 
   if(!blog) {
