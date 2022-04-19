@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import short from 'short-uuid';
 import Container from '../Wrapper/Container';
@@ -18,6 +18,7 @@ import client from '../../contentful/createClient';
 const Footer = () => {
   const { brand1, gray } = categoryColors;
   const [categories, setCategories] = useState();
+  const [error, setError] = useState();
 
   const getBlog = async (isSubscribed) => {
     try {
@@ -32,7 +33,7 @@ const Footer = () => {
         setCategories(list);
       }
     } catch (error) {
-      console.log(error);
+      setError(error);
     }
   };
 
@@ -126,7 +127,7 @@ const Footer = () => {
                   <FooterTextBold>Categories</FooterTextBold>
                 </ContentTitle>
                 {
-                  categories && categories.map((category) => {
+                  !error && categories && categories.map((category) => {
                     return (
                       <Link
                         key={short.generate()}

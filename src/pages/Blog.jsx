@@ -15,10 +15,14 @@ const num = 20;
 const Blog = () => {
   const params = useParams();
   const [loading, setLoading] = useState(true);
-  const [blogList, total, pageTitle] = useGetBlogList(params, setLoading);
+  const [blogList, total, pageTitle, error] = useGetBlogList(params, setLoading);
 
   if(loading) {
     return <SpinnerFullScreen />;
+  }
+
+  if(error) {
+    return null;
   }
 
   return (

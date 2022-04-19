@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
 import client from '../contentful/createClient';
 import postListToSliderData from '../util/postListToSliderData';
-import { capitalize } from '../util/capitalize';
 
 const useGetBlogList = (params, setLoading) => {
   const { categoryId, tagId, pageNumber } = params;
+  const [error, setError] = useState(false);
+
   let query = {
     content_type: 'blogPost',
     skip: 0,
@@ -105,7 +105,9 @@ const useGetBlogList = (params, setLoading) => {
         setLoading(false);
       }
     } catch (error) {
-      console.log(error);
+      if(isSubscribed) {
+        setError(true);
+      }
     }
   };
 
@@ -120,7 +122,7 @@ const useGetBlogList = (params, setLoading) => {
     };
   }, [params]);
 
-  return [blogList, total, pageTitle];
+  return [blogList, total, pageTitle, error];
 };
 
 export default useGetBlogList;

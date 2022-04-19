@@ -2,7 +2,6 @@ import short from 'short-uuid';
 import React, { useEffect, useState } from 'react';
 import Posts from '../../components/Posts/Posts';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
-import { popularPosts } from '../../data/popularPosts';
 import PostCard from '../../components/PostCard/PostCard';
 import { PopularPostsWrapper } from './PopularPosts.style';
 import Container from '../../components/Wrapper/Container';
@@ -11,6 +10,7 @@ import postListToSliderData from '../../util/postListToSliderData';
 
 const PopularPosts = () => {
   const [blog, setBlog] = useState();
+  const [error, setError] = useState(false);
 
   const getBlog = async (isSubscribed) => {
     try {
@@ -34,7 +34,9 @@ const PopularPosts = () => {
         setBlog(final);
       }
     } catch (error) {
-      console.log(error);
+      if(isSubscribed) {
+        setError(true);
+      }
     }
   };
 
@@ -60,14 +62,14 @@ const PopularPosts = () => {
         </SectionHeader>
         <Posts col={3}>
           {
-            blog && blog.map((item) => {
-              return (
-                <PostCard
-                  key={short.generate()}
-                  post={item}
-                />
-              );
-            })
+           !error && blog && blog.map((item) => {
+             return (
+               <PostCard
+                 key={short.generate()}
+                 post={item}
+               />
+             );
+           })
           }
         </Posts>
       </Container>

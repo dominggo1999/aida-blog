@@ -7,6 +7,7 @@ import SpinnerFullScreen from '../../components/SpinnerFullscreen/SpinnerFullscr
 
 const MainBanner = () => {
   const [blog, setBlog] = useState();
+  const [error, setError] = useState(false);
 
   const getBlog = async (isSubscribed) => {
     try {
@@ -31,7 +32,9 @@ const MainBanner = () => {
         setBlog(final);
       }
     } catch (error) {
-      console.log(error);
+      if(isSubscribed) {
+        setError(true);
+      }
     }
   };
 
@@ -44,6 +47,10 @@ const MainBanner = () => {
       isSubscribed = false;
     };
   }, []);
+
+  if(error) {
+    return null;
+  }
 
   if(!blog) {
     return <SpinnerFullScreen />;

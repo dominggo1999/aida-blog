@@ -11,6 +11,7 @@ import postListToSliderData from '../../util/postListToSliderData';
 
 const RecentPost = () => {
   const [blog, setBlog] = useState();
+  const [error, setError] = useState(false);
 
   const getBlog = async (isSubscribed) => {
     try {
@@ -35,7 +36,9 @@ const RecentPost = () => {
         setBlog(final);
       }
     } catch (error) {
-      console.log(error);
+      if(isSubscribed) {
+        setError(true);
+      }
     }
   };
 
@@ -61,15 +64,15 @@ const RecentPost = () => {
         </SectionHeader>
         <Posts col={2}>
           {
-            blog && blog.map((item) => {
-              return (
-                <PostCard
-                  key={short.generate()}
-                  post={item}
-                  readTime
-                />
-              );
-            })
+           !error && blog && blog.map((item) => {
+             return (
+               <PostCard
+                 key={short.generate()}
+                 post={item}
+                 readTime
+               />
+             );
+           })
           }
         </Posts>
       </Container>

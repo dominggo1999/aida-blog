@@ -19,6 +19,7 @@ const BlockSingle = () => {
   const [blog, setBlog] = useState();
   const isSubscribed = useRef(true);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const getBlog = async () => {
     setLoading(true);
@@ -41,7 +42,9 @@ const BlockSingle = () => {
         scrollToTop();
       }
     } catch (error) {
-      console.log(error);
+      if(isSubscribed) {
+        setError(true);
+      }
     }
   };
 
@@ -52,7 +55,7 @@ const BlockSingle = () => {
 
   if(loading) return <SpinnerFullscreen />;
 
-  if(!blog) return null;
+  if(!blog || error) return null;
 
   return (
     <>

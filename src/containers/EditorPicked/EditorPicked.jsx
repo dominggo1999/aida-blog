@@ -6,6 +6,7 @@ import EditorsPicked from '../../components/EditorsPicked/EditorsPicked';
 
 const EditorPicked = () => {
   const [blog, setBlog] = useState();
+  const [error, setError] = useState(false);
 
   const getBlog = async (isSubscribed) => {
     try {
@@ -27,7 +28,9 @@ const EditorPicked = () => {
         setBlog(final);
       }
     } catch (error) {
-      console.log(error);
+      if(isSubscribed) {
+        setError(error);
+      }
     }
   };
 
@@ -41,7 +44,7 @@ const EditorPicked = () => {
     };
   }, []);
 
-  if(!blog) {
+  if(!blog || error) {
     return null;
   }
 

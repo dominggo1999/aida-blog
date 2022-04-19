@@ -8,15 +8,15 @@ import { categories } from '../../data/categories';
 import Posts from '../../components/Posts/Posts';
 import { popularPosts } from '../../data/popularPosts';
 import PostCard3 from '../../components/PostCard3/PostCard3';
-import VerticalBanner from '../../components/VerticalBanner/VerticalBanner';
 import client from '../../contentful/createClient';
 import postListToSliderData from '../../util/postListToSliderData';
 
 const popularCategories = categories.filter((i, id) => id < 4);
 const posts = popularPosts.filter((i, id) => id < 4);
 
-const BlogListSidebar = () => {
+const BlogListSidebar = (isSubscribed) => {
   const [blog, setBlog] = useState();
+  const [error, setError] = useState(false);
 
   const getBlog = async () => {
     try {
@@ -36,9 +36,13 @@ const BlogListSidebar = () => {
       });
 
       const final = await postListToSliderData(entries);
-      setBlog(final);
-    } catch (error) {
-      console.log(error);
+      if(isSubscribed) {
+        setBlog(final);
+      }
+    } catch (err) {
+      if(isSubscribed) {
+        setError(true);
+      }
     }
   };
 
@@ -76,7 +80,7 @@ const BlogListSidebar = () => {
       <SidebarTitle title="Popular Posts" />
       <Posts>
         {
-          blog && blog.map((post) => {
+          !error && blog && blog.map((post) => {
             return(
               <PostCard3
                 key={short.generate()}
