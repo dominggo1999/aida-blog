@@ -16,9 +16,6 @@ const Navlinks = ({ openSideNavbar }) => {
   return (
     <>
       <MenuButton>
-        <SearchIcon>
-          <BiSearchAlt2 />
-        </SearchIcon>
         <Button
           nav
           onClick={openSideNavbar}
@@ -41,9 +38,6 @@ const Navlinks = ({ openSideNavbar }) => {
           }
         </NavlinksWrapper>
         <NavlinksWrapper>
-          <SearchIcon>
-            <BiSearchAlt2 />
-          </SearchIcon>
           <Button nav>
             Subscribe
           </Button>
