@@ -68,7 +68,7 @@ export const ShareActionList = styled.div`
   `}
 `;
 
-export const ShareButton = styled.button`
+export const ShareButton = styled.a`
   ${tw` 
     text-base
     rounded-lg 

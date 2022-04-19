@@ -1,5 +1,6 @@
 import short from 'short-uuid';
-import { FaFacebookF, FaTwitter, FaPinterestP } from 'react-icons/fa';
+import { FaFacebookF, FaTwitter } from 'react-icons/fa';
+import { BsWhatsapp } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import {
@@ -9,10 +10,14 @@ import Button from '../Button/Button';
 import { categoryColors } from '../../data/categoryColors';
 import { scrollToTop } from '../../util/scrollToTop';
 
-// const tags = ['geawgew', 'geege', 'wwfqfqwf', 'button', 'button', 'button', 'button', 'button'];
-
 const BlogBottom = ({ blog }) => {
+  const url = encodeURIComponent(window.location.href);
   const tags = blog.fields.tags;
+  const title = blog.fields.title;
+
+  const facebookShareLink = `http://facebook.com/sharer/sharer.php?u=${url}`;
+  const twitterShareLink = `https://twitter.com/intent/tweet?text=${title}&url=${url}`;
+  const whatsappShareLink = `https://wa.me/?text=${url}`;
 
   return (
     <>
@@ -42,9 +47,24 @@ const BlogBottom = ({ blog }) => {
               Share This :
             </ShareActionText>
             <ShareActionList>
-              <ShareButton><FaFacebookF /></ShareButton>
-              <ShareButton><FaTwitter /> </ShareButton>
-              <ShareButton><FaPinterestP /> </ShareButton>
+              <ShareButton
+                target="_blank"
+                rel="noopener noreferer"
+                href={facebookShareLink}
+              ><FaFacebookF />
+              </ShareButton>
+              <ShareButton
+                target="_blank"
+                rel="noopener noreferer"
+                href={twitterShareLink}
+              ><FaTwitter />
+              </ShareButton>
+              <ShareButton
+                target="_blank"
+                rel="noopener noreferer"
+                href={whatsappShareLink}
+              ><BsWhatsapp />
+              </ShareButton>
             </ShareActionList>
           </ShareActionRow>
         </ShareAction>
