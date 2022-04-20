@@ -4,18 +4,10 @@ export const Field = styled.div`
   ${tw`
     flex 
     flex-wrap
-    w-full
+    w-full 
+    relative 
   `}
 
-  form {
-    ${tw`
-      flex-wrap
-      items-stretch 
-      flex
-      w-full
-    `}
-  } 
-  
   textarea {
     min-height: 200px;
     max-height: 300px;
@@ -26,7 +18,6 @@ export const Field = styled.div`
       shadow-button
       rounded-2xl
       outline-none 
-      mb-5
       mr-0
       sm:mr-5
       md:mb-0

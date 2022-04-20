@@ -27,19 +27,60 @@ export const ContactTitle = styled.h2`
 
 export const Form = styled.form`
   ${tw`
-    w-full 
+    w-full  
+    flex 
+    flex-col 
+    gap-y-6
   `}
+
+  button{
+    ${tw`
+      self-start
+    `}
+  }
+
+  textarea {
+    min-height: 200px;
+    max-height: 300px;
+  }
 
   input, textarea {
     ${tw`
-      mr-0 
-      mb-5  
+      shadow-button
+      rounded-2xl
+      outline-none 
+      mr-0
+      md:mb-0
+      w-full 
+      px-4
+      py-5
+      text-xl
+      font-bold
+      text-gray-3 
+      border-2 
+      border-transparent
     `}
+    transition: border ease-in-out 300ms;
+
+    &:focus {
+      ${tw`border-2 border-black`}
+    }
+
+    &::placeholder {
+      ${tw`
+        text-gray-2
+      `}
+    }
   }
 `;
 
 export const FormTop = styled.div`
-  ${tw`flex flex-wrap justify-between`} 
+  ${tw`
+    flex 
+    flex-wrap 
+    justify-between 
+    gap-y-6
+  `} 
 
   div {
     ${tw`
@@ -56,6 +97,32 @@ export const FormBottom = styled.div`
   textarea {
     ${tw`
       w-full 
+    `}
+  }
+`;
+
+export const ErrorMessage = styled.span`
+  ${tw`
+    absolute 
+    right-0 
+    top-full 
+    text-sm 
+    text-red-500 
+    font-semibold
+    z-50
+  `}
+`;
+
+export const FormActions = styled.div`
+  ${tw`
+    flex  
+    items-center
+    gap-x-2 
+  `}
+  p{
+    ${tw` 
+      mt-2  
+      font-medium
     `}
   }
 `;

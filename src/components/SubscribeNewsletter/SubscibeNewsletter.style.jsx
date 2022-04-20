@@ -27,8 +27,47 @@ export const ContentBottom = styled.div`
     flex-wrap
   `}
 
+  form{
+    ${tw`
+      flex 
+      gap-x-1
+      gap-y-6
+      flex-wrap
+      w-full 
+      relative 
+    `}
+  }
+
   input {
-    max-width: 450px;
+    max-width: 400px;
+    ${tw`
+      shadow-button
+      rounded-2xl
+      outline-none 
+      mr-0
+      sm:mr-5
+      md:mb-0
+      w-full 
+      px-4
+      py-5
+      text-xl
+      font-bold
+      text-gray-3 
+      border-2 
+      border-transparent
+    `}
+
+    transition: border ease-in-out 300ms;
+
+    &:focus {
+      ${tw`border-2 border-black`}
+    }
+
+    &::placeholder {
+      ${tw`
+        text-gray-2
+      `}
+    }
   }
 
   button {
@@ -70,5 +109,16 @@ export const NewsletterText = styled.h3`
     text-4xl
     font-poppins
     font-semibold
+  `}
+`;
+
+export const SuccessMessage = styled.span`
+  ${tw`
+    relative 
+    z-50 
+    font-semibold 
+    text-right 
+    w-full 
+    mt-[1px]
   `}
 `;
