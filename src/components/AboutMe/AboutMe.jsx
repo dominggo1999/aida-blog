@@ -17,7 +17,7 @@ const AboutMe = () => {
           <AboutMeImage>
             <AidaImage>
               <img
-                src="https://images.pexels.com/photos/1756165/pexels-photo-1756165.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                src="https://images.pexels.com/photos/5409772/pexels-photo-5409772.jpeg?auto=compress&cs=tinysrgb&w=400&dpr=1"
                 alt="Me"
               />
             </AidaImage>
