@@ -20,6 +20,19 @@ const Footer = () => {
   const [categories, setCategories] = useState();
   const [error, setError] = useState();
 
+  const downloadFile = () => {
+    const element = document.createElement('a');
+    element.setAttribute('href', `data:text/plain;charset=utf-8,${encodeURIComponent('Just a demo file')}`);
+    element.setAttribute('download', 'demo-file.txt');
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
+  };
+
   const getBlog = async (isSubscribed) => {
     try {
       const res = await client.getEntries({
@@ -60,6 +73,7 @@ const Footer = () => {
                   All you need to start blogging
                 </FooterTextBold>
                 <Button
+                  onClick={downloadFile}
                   bg={brand1}
                 >Download
                 </Button>
