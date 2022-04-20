@@ -42,7 +42,7 @@ const SubscribeNewsletter = () => {
   }, []);
 
   return (
-    <SubscribeNewsLetterWrapper>
+    <SubscribeNewsLetterWrapper id="newsletter-form">
       <Container>
         <Content>
           <ContentTop>

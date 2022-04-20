@@ -1,6 +1,7 @@
 import tw, { styled } from 'twin.macro';
+import { Element } from 'react-scroll';
 
-export const SubscribeNewsLetterWrapper = styled.div`
+export const SubscribeNewsLetterWrapper = styled(Element)`
   ${tw`
     w-full 
     flex 

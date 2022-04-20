@@ -83,7 +83,9 @@ const Navbar = () => {
                 aida.
               </NavLogo>
             </Link>
-            <Navlinks openSideNavbar={openSideNavbar} />
+            <Navlinks
+              openSideNavbar={openSideNavbar}
+            />
           </NavbarFlex>
         </Container>
       </NavbarWrapper>

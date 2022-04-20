@@ -32,13 +32,3 @@ export const MenuButton = styled.div`
     md:hidden
   `}
 `;
-
-export const SearchIcon = styled.button`
-  ${tw`
-    cursor-pointer
-    flex 
-    items-center 
-    text-3xl
-    px-3
-  `}
-`;

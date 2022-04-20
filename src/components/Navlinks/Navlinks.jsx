@@ -1,18 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BiSearchAlt2 } from 'react-icons/bi';
+import { scroller } from 'react-scroll';
 import {
   NavlinksFlex,
   NavlinksWrapper,
   NavItemLeft,
   MenuButton,
-  SearchIcon,
 } from './Navlink.style';
 import navlinks from '../../constants/navlinks';
 import Button from '../Button/Button';
 import { scrollToTop } from '../../util/scrollToTop';
 
 const Navlinks = ({ openSideNavbar }) => {
+  const scrollToNewsletterForm = () => {
+    scroller.scrollTo('newsletter-form', {
+      duration: 1600,
+      smooth: 'easeInOutQuint',
+    });
+  };
+
   return (
     <>
       <MenuButton>
@@ -38,7 +44,10 @@ const Navlinks = ({ openSideNavbar }) => {
           }
         </NavlinksWrapper>
         <NavlinksWrapper>
-          <Button nav>
+          <Button
+            nav
+            onClick={scrollToNewsletterForm}
+          >
             Subscribe
           </Button>
         </NavlinksWrapper>
