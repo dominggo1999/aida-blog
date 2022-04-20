@@ -6,8 +6,11 @@ import PopularPosts from '../containers/PopularPosts/PopularPosts';
 import RecentPosts from '../containers/RecentPosts/RecentPost';
 import { SpaceTop } from '../components/Wrapper/SpaceTop';
 import EditorPicked from '../containers/EditorPicked/EditorPicked';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 
 const Homepage = () => {
+  useDocumentTitle('Home');
+
   return (
     <>
       <SpaceTop />
