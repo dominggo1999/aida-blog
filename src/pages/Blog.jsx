@@ -8,6 +8,7 @@ import { SpaceTop } from '../components/Wrapper/SpaceTop';
 import PageHeader from '../components/PageHeader/PageHeader';
 import useGetBlogList from '../hooks/useGetBlogList';
 import SpinnerFullScreen from '../components/SpinnerFullscreen/SpinnerFullscreen';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 
 const title = 'All articles';
 const num = 20;
@@ -16,6 +17,8 @@ const Blog = () => {
   const params = useParams();
   const [loading, setLoading] = useState(true);
   const [blogList, total, pageTitle, error] = useGetBlogList(params, setLoading);
+
+  useDocumentTitle(pageTitle);
 
   if(loading) {
     return <SpinnerFullScreen />;

@@ -9,11 +9,14 @@ import { categoryColors } from '../../data/categoryColors';
 import { parseDate } from '../../util/parseDate';
 import { capitalize } from '../../util/capitalize';
 import { scrollToTop } from '../../util/scrollToTop';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 const BlogHeader = ({ blog }) => {
   const {
     title, mainImage, category, readingTime,
   } = blog.fields;
+
+  useDocumentTitle(title);
 
   const publishedDate = blog.sys.createdAt;
 

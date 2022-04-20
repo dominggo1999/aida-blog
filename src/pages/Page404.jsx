@@ -6,20 +6,12 @@ import {
 import Container from '../components/Wrapper/Container';
 import Button from '../components/Button/Button';
 import { scrollToTop } from '../util/scrollToTop';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 
 const Page404 = () => {
-  const history = useHistory();
   const homeButton = useRef(null);
 
-  // useEffect(() => {
-  //   const redirectToHomepage = setTimeout(() => {
-  //     homeButton.current.click();
-  //   }, 3000);
-
-  //   return () => {
-  //     clearInterval(redirectToHomepage);
-  //   };
-  // }, []);
+  useDocumentTitle('404');
 
   return (
     <NotFoundWrapper>
