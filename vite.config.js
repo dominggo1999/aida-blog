@@ -8,7 +8,15 @@ export default defineConfig({
   plugins: [
     react({
       babel: {
-        plugins: ['babel-plugin-macros', 'babel-plugin-styled-components'],
+        plugins: [
+          'babel-plugin-macros',
+          [
+            'babel-plugin-styled-components',
+            {
+              displayName: process.env.NODE_ENV !== 'production',
+            },
+          ],
+        ],
       },
     }),
     svgrPlugin({
